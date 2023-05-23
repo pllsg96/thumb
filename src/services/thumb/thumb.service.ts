@@ -3,7 +3,7 @@ import { ThumbDTO } from 'src/DTO/thumb.dto';
 import fetch from 'node-fetch';
 import * as fs from 'fs';
 import * as ExifParser from 'exif-parser';
-import Jimp from 'jimp';
+import * as Jimp from 'jimp';
 const PATH = './path/to/';
 
 const getMetaData = async (compress) => {
@@ -36,7 +36,7 @@ export class ThumbService {
     const response = await fetch(newThumb.image);
     const buffer = await response.buffer();
     await fs.writeFile(`${PATH}imagem.jpg`, buffer, () =>
-      getMetaData(newThumb.compress),
+      getMetaData(newThumb.compress * 100),
     );
 
     return newThumb;
