@@ -32,10 +32,6 @@ const makeA720copy = () => {
 
 @Injectable()
 export class ThumbService {
-  getEai(): string {
-    return 'eai';
-  }
-
   async compressThumb(newThumb: ThumbDTO): Promise<ThumbDTO> {
     const response = await fetch(newThumb.image);
     const buffer = await response.buffer();
