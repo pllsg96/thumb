@@ -7,7 +7,7 @@ export class ThumbController {
   constructor(private readonly _thumbService: ThumbService) {}
 
   @Post('save')
-  async compressThumb(@Body() newThumb: ThumbDTO): Promise<ThumbDTO> {
+  async compressThumb(@Body() newThumb: ThumbDTO): Promise<any> {
     return this._thumbService.compressThumb(newThumb);
   }
 }

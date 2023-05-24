@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Thumb, ThumbDocument } from 'src/database/schemas/thumb.schema';
 import { ThumbDTO } from './dto/thumb.dto';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import fetch from 'node-fetch';
 import * as fs from 'fs';
 import * as ExifParser from 'exif-parser';
@@ -24,7 +24,7 @@ export class ThumbService {
   }
 
   async writeFile(buffer: Buffer, sufix?: string): Promise<void> {
-    const fileName = sufix ? `image_${sufix}.jpg` : `image.jpg`;
+    const fileName = sufix ? `imagem_${sufix}.jpg` : `imagem.jpg`;
 
     await fs.writeFile(`${PATH}/${fileName}`, buffer, () => {
       console.log('imagem salva');
@@ -36,22 +36,29 @@ export class ThumbService {
     return metadata;
   }
 
-  async compressThumb(newThumb: ThumbDTO): Promise<ThumbDTO> {
+  async compressThumb(newThumb: ThumbDTO): Promise<any> {
     const buffer = await this.fetchImage(newThumb.image);
     await this.writeFile(buffer);
     const meta = await this.getMetadata(buffer);
     if (!meta) {
       throw new Error('Erro ao obter metadados da imagem');
     }
-    console.log(meta);
     await this.resizeImage(buffer, newThumb.compress, meta.imageSize);
     try {
       const info = await this.saveMetadata(meta);
       console.log(info, meta);
+      return {
+        localpath: {
+          original: `${PATH}/imagem.jpg`,
+          thumb: `${PATH}/$imagem_thumb.jpg`,
+        },
+        metadata: {
+          meta,
+        },
+      };
     } catch (error) {
       console.error(error);
     }
-    return newThumb;
   }
 
   async resizeImage(
@@ -80,7 +87,7 @@ export class ThumbService {
   async saveMetadata(metadata: any): Promise<Thumb> {
     return await this._thumbSchema.create({
       metadata,
-      id: uuid(),
+      id: uuidv4(),
     });
   }
 }
