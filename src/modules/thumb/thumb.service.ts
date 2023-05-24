@@ -50,7 +50,7 @@ export class ThumbService {
       return {
         localpath: {
           original: `${PATH}/imagem.jpg`,
-          thumb: `${PATH}/$imagem_thumb.jpg`,
+          thumb: `${PATH}/imagem_thumb.jpg`,
         },
         metadata: {
           meta,
