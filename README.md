@@ -19,7 +19,13 @@
   <li>Uuid</li>
 </ul>
 
-## Instalando projeto
+## Iniciando o projeto
+<p>Primeiramente em seu terminal faça o clone do repositório com o seguinte comando:</p>
+
+```bash
+$ git clone https://github.com/pllsg96/thumb.git
+```
+<p>Após a finalização da etapa anterior entre na pasta do repositório e siga a próxima instrução</p>
 <p>Em seu terminal digite o seguinte código:</p>
 
 ```bash
