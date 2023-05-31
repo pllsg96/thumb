@@ -20,25 +20,23 @@
 </ul>
 
 ## Iniciando o projeto
-<p>Primeiramente em seu terminal faça o clone do repositório com o seguinte comando:</p>
-
 ```bash
+# Faça o clone do projeto para a sua máquina
 $ git clone https://github.com/pllsg96/thumb.git
-```
-<p>Após a finalização da etapa anterior entre na pasta do repositório e siga a próxima instrução</p>
-<p>Em seu terminal digite o seguinte código:</p>
 
-```bash
+# Após isto, acesse a pasta do projeto
+$ cd thumb
+
+# Em seu terminal digite o seguinte código paga instalar as dependências do projeto
 $ npm install
 ```
 
 ## Iniciando a aplicação
-
-<p>Em seu terminal digite o seguinte código:</p>
-
 ```bash
+# Copie o codigo em seu terminal para subir os containers
 $ docker-compose up -d
 
+$ Em seu terminal digite o deguinte código para iniciar o servidor
 $ npm run start
 ```
 
