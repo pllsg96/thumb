@@ -36,7 +36,7 @@ $ npm install
 # Copie o codigo em seu terminal para subir os containers
 $ docker-compose up -d
 
-$ Em seu terminal digite o deguinte código para iniciar o servidor
+# Em seu terminal digite o deguinte código para iniciar o servidor
 $ npm run start
 ```
 
