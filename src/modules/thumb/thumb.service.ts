@@ -26,8 +26,12 @@ export class ThumbService {
   async writeFile(buffer: Buffer, sufix?: string): Promise<void> {
     const fileName = sufix ? `imagem_${sufix}.jpg` : `imagem.jpg`;
 
+    if (!fs.existsSync(PATH)) {
+      fs.mkdirSync(PATH, { recursive: true });
+    }
+
     await fs.writeFile(`${PATH}/${fileName}`, buffer, () => {
-      console.log('imagem salva');
+      // console.log('imagem salva');
     });
   }
 
