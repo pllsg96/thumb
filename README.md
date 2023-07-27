@@ -3,7 +3,7 @@
 </h1>
 
 ## Descrição
-<p align="jistify">
+<p align="justify">
   Projeto realizado com objetivo de realizar a compressão de uma imagem tendo como base uma determinada URL, gerando uma thumb e salvando também os metadados da imagem original em um banco de dados não relacional.
   <br>
 </p>
