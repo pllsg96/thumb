@@ -31,7 +31,7 @@ export class ThumbService {
     }
 
     await fs.writeFile(`${PATH}/${fileName}`, buffer, () => {
-      // console.log('imagem salva');
+      // console.log('imagem salva' );
     });
   }
 
